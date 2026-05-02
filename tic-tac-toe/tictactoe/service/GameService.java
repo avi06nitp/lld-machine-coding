@@ -17,30 +17,32 @@ public class GameService {
     }
 
     public void play(Player player1, Player player2, Board board) {
-        Player currentPlayer=player1;
+        Player currentPlayer = player1;
 
-        while(gameStatus!=GameStatus.FINISHED && gameStatus!=GameStatus.DRAW){
-            MoveStrategy moveStrategy=currentPlayer.getStrategy();
+        while (gameStatus != GameStatus.FINISHED && gameStatus != GameStatus.DRAW) {
+            MoveStrategy moveStrategy = currentPlayer.getStrategy();
             moveStrategy.move(board, currentPlayer);
             board.printBoard();
-            System.out.println();
 
-            if(winnerDetectionService.getWinner()==GameStatus.FINISHED){
-                gameStatus=GameStatus.FINISHED;
-                System.out.println(currentPlayer.getName()+" wins!");
+            if (winnerDetectionService.getWinner() == GameStatus.FINISHED) {
+                gameStatus = GameStatus.FINISHED;
+                System.out.println("\033[1;36m");
+                System.out.println("  ╔══════════════════════════════════════════════╗");
+                System.out.println("  ║         GAME OVER — WE HAVE A WINNER!       ║");
+                System.out.println("  ╚══════════════════════════════════════════════╝\033[0m");
+                System.out.println("\033[1;32m  [WIN] " + currentPlayer.getName() + " wins!\033[0m\n");
                 break;
-            }else if (winnerDetectionService.getWinner()==GameStatus.DRAW){
-                gameStatus=GameStatus.DRAW;
-                System.out.println("Both players played optimally, and no one wins!");
+            } else if (winnerDetectionService.getWinner() == GameStatus.DRAW) {
+                gameStatus = GameStatus.DRAW;
+                System.out.println("\033[1;33m  [DRAW] Both players played optimally — it's a draw!\033[0m\n");
                 break;
-            }
-            if(currentPlayer==player1){
-                currentPlayer=player2;
-            }
-            else if(currentPlayer==player2){
-                currentPlayer=player1;
             }
 
+            if (currentPlayer == player1) {
+                currentPlayer = player2;
+            } else {
+                currentPlayer = player1;
+            }
         }
     }
 }

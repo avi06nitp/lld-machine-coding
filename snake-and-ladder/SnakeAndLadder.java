@@ -15,66 +15,89 @@ public class SnakeAndLadder {
     public static void main(String[] args) {
 
         ValidationService service = new ValidationService();
-        System.out.println("Welcome to SnakeAndLadder!");
-
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("\033[1;36m");
+        System.out.println("  ╔══════════════════════════════════════════════╗");
+        System.out.println("  ║           SNAKE AND LADDER GAME              ║");
+        System.out.println("  ╚══════════════════════════════════════════════╝\033[0m");
 
-        int boardSize=0;
-        while(true) {
-            try{
-                System.out.println("Please enter the Board size between [100,500]:(default = 100) ");
-                boardSize=Integer.parseInt(scanner.nextLine());
+        int boardSize = 0;
+        while (true) {
+            try {
+                System.out.println("\033[1;33m  ► Enter Board size [100-500] (default = 100):\033[0m");
+                boardSize = Integer.parseInt(scanner.nextLine().trim());
                 service.validateBoardSize(boardSize);
                 break;
-            }catch (InvalidBoardSize e){
-                System.out.println(e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println("\033[1;31m  [x] Invalid input — board size must be a number.\033[0m");
+            } catch (InvalidBoardSize e) {
+                System.out.println("\033[1;31m  [x] " + e.getMessage() + "\033[0m");
             }
+        }
 
-        }
-        Board board = new Board(boardSize,service);
-        int playerSize=0;
-        while(true) {
-           try {
-               System.out.println("Please enter no. of Players in range [2,5]: ");
-               playerSize= Integer.parseInt(scanner.nextLine());
-               service.validatePlayerSize(playerSize);
-               break;
-           }catch (InvalidPlayerSize e){
-               System.out.println(e.getMessage());
-           }
-        }
-        int ladderSize=0;
-        while(true) {
+        Board board = new Board(boardSize, service);
+
+        int playerSize = 0;
+        while (true) {
             try {
-                System.out.println("Please enter no. of Ladders in range [2,5]: ");
-                ladderSize= Integer.parseInt(scanner.nextLine());
+                System.out.println("\033[1;33m  ► Enter no. of Players [2-5]:\033[0m");
+                playerSize = Integer.parseInt(scanner.nextLine().trim());
+                service.validatePlayerSize(playerSize);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("\033[1;31m  [x] Invalid input — player count must be a number.\033[0m");
+            } catch (InvalidPlayerSize e) {
+                System.out.println("\033[1;31m  [x] " + e.getMessage() + "\033[0m");
+            }
+        }
+
+        int ladderSize = 0;
+        while (true) {
+            try {
+                System.out.println("\033[1;33m  ► Enter no. of Ladders [2-5]:\033[0m");
+                ladderSize = Integer.parseInt(scanner.nextLine().trim());
                 service.validateSnakeandLadderCountSize(ladderSize);
                 break;
-            }catch (InvalidLadderCount e){
-                System.out.println(e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println("\033[1;31m  [x] Invalid input — ladder count must be a number.\033[0m");
+            } catch (InvalidLadderCount e) {
+                System.out.println("\033[1;31m  [x] " + e.getMessage() + "\033[0m");
             }
         }
-        int snakeSize=0;
-        while(true) {
+
+        int snakeSize = 0;
+        while (true) {
             try {
-                System.out.println("Please enter no. of Snakes in range [2,5]: ");
-                snakeSize= Integer.parseInt(scanner.nextLine());
+                System.out.println("\033[1;33m  ► Enter no. of Snakes [2-5]:\033[0m");
+                snakeSize = Integer.parseInt(scanner.nextLine().trim());
                 service.validateSnakeandLadderCountSize(snakeSize);
                 break;
-            }catch (InvalidLadderCount e){
-                System.out.println(e.getMessage());
-
+            } catch (NumberFormatException e) {
+                System.out.println("\033[1;31m  [x] Invalid input — snake count must be a number.\033[0m");
+            } catch (InvalidLadderCount e) {
+                System.out.println("\033[1;31m  [x] " + e.getMessage() + "\033[0m");
             }
         }
-        PlayerFactory factory=new PlayerFactory();
-        System.out.println("Please enter winning strategy: [EXACT, EXCEEDS]: ");
-        WinningStrategyFactory winningStrategyFactory=new WinningStrategyFactory();
-        GameWinningStrategy gamewinningStrategy= GameWinningStrategy.valueOf(scanner.nextLine());
-        WinningStrategy winningStrategy=winningStrategyFactory.createWinningStrategy(gamewinningStrategy);
-        GameController gameController=new GameController(board, ladderSize,playerSize,snakeSize, factory, winningStrategy,  scanner);
+
+        PlayerFactory factory = new PlayerFactory();
+        WinningStrategyFactory winningStrategyFactory = new WinningStrategyFactory();
+        GameWinningStrategy gameWinningStrategy = GameWinningStrategy.EXACT;
+        while (true) {
+            try {
+                System.out.println("\033[1;33m  ► Enter winning strategy \033[2m[EXACT / EXCEEDS]\033[0m\033[1;33m:\033[0m");
+                gameWinningStrategy = GameWinningStrategy.valueOf(scanner.nextLine().trim().toUpperCase());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("\033[1;31m  [x] Invalid strategy — use EXACT or EXCEEDS.\033[0m");
+            }
+        }
+
+        WinningStrategy winningStrategy = winningStrategyFactory.createWinningStrategy(gameWinningStrategy);
+        GameController gameController = new GameController(board, ladderSize, playerSize, snakeSize, factory, winningStrategy, scanner);
         gameController.initializeGame();
         gameController.play();
 
+        scanner.close();
     }
 }
