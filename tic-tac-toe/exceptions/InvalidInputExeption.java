@@ -1,4 +1,4 @@
-package exceptions;
+package tictactoe.exceptions;
 
 public class InvalidInputExeption extends RuntimeException {
     public InvalidInputExeption(String message) {

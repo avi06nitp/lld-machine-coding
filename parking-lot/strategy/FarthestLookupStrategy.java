@@ -1,9 +1,9 @@
-package strategy;
+package parkinglot.strategy;
 
-import enums.VehicleType;
-import models.Floor;
-import models.ParkingSpot;
-import registry.FloorRegistry;
+import parkinglot.enums.VehicleType;
+import parkinglot.models.Floor;
+import parkinglot.models.ParkingSpot;
+import parkinglot.registry.FloorRegistry;
 
 import java.util.List;
 import java.util.Optional;

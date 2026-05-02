@@ -1,13 +1,13 @@
 
-import enums.PlayerType;
-import exceptions.InvalidBoardSize;
-import factory.PlayerFactory;
-import models.Board;
-import models.Player;
-import service.BoardValidation;
-import service.GameService;
-import service.InputValidationService;
-import service.WinnerDetectionService;
+import tictactoe.enums.PlayerType;
+import tictactoe.exceptions.InvalidBoardSize;
+import tictactoe.factory.PlayerFactory;
+import tictactoe.models.Board;
+import tictactoe.models.Player;
+import tictactoe.service.BoardValidation;
+import tictactoe.service.GameService;
+import tictactoe.service.InputValidationService;
+import tictactoe.service.WinnerDetectionService;
 
 import java.util.Scanner;
 

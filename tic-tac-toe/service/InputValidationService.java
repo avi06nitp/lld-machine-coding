@@ -1,8 +1,8 @@
-package service;
+package tictactoe.service;
 
-import exceptions.AlreadyOccupiedCellException;
-import exceptions.OutOfBoundsExceptions;
-import models.Board;
+import tictactoe.exceptions.AlreadyOccupiedCellException;
+import tictactoe.exceptions.OutOfBoundsExceptions;
+import tictactoe.models.Board;
 
 public class InputValidationService {
 

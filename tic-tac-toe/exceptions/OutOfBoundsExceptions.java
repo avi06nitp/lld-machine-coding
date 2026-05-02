@@ -1,4 +1,4 @@
-package exceptions;
+package tictactoe.exceptions;
 
 public class OutOfBoundsExceptions extends InvalidInputExeption {
     public OutOfBoundsExceptions(int row, int column) {

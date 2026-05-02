@@ -1,9 +1,9 @@
-package strategy;
+package parkinglot.strategy;
 
-import models.Floor;
-import models.ParkingSpot;
-import models.Ticket;
-import models.Vehicle;
+import parkinglot.models.Floor;
+import parkinglot.models.ParkingSpot;
+import parkinglot.models.Ticket;
+import parkinglot.models.Vehicle;
 
 public interface HourlyFairCalculationStrategy {
 

@@ -1,6 +1,6 @@
-package service;
+package tictactoe.service;
 
-import exceptions.InvalidBoardSize;
+import tictactoe.exceptions.InvalidBoardSize;
 
 public class BoardValidation {
 

@@ -1,6 +1,6 @@
-package models;
+package snakeandladder.models;
 
-import service.ValidationService;
+import snakeandladder.service.ValidationService;
 
 import java.util.HashMap;
 import java.util.Map;

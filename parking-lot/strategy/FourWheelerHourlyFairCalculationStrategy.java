@@ -1,6 +1,6 @@
-package strategy;
+package parkinglot.strategy;
 
-import models.Ticket;
+import parkinglot.models.Ticket;
 
 import java.util.Date;
 

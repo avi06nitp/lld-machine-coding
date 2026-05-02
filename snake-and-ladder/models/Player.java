@@ -1,6 +1,6 @@
-package models;
+package snakeandladder.models;
 
-import strategy.DiceRollStrategy;
+import snakeandladder.strategy.DiceRollStrategy;
 
 public class Player {
     private final String name;

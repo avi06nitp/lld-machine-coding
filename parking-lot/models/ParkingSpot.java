@@ -1,6 +1,6 @@
-package models;
+package parkinglot.models;
 
-import enums.VehicleType;
+import parkinglot.enums.VehicleType;
 
 public class ParkingSpot {
     private final VehicleType type;

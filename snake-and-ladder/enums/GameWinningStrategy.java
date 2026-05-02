@@ -1,4 +1,4 @@
-package enums;
+package snakeandladder.enums;
 
 public enum GameWinningStrategy {
     EXACT,

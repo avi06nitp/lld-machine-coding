@@ -1,11 +1,11 @@
-package factory;
+package parkinglot.factory;
 
-import enums.LookupType;
-import models.Floor;
-import registry.FloorRegistry;
-import strategy.FarthestLookupStrategy;
-import strategy.LookUpStrategy;
-import strategy.NearestLookUpStrategy;
+import parkinglot.enums.LookupType;
+import parkinglot.models.Floor;
+import parkinglot.registry.FloorRegistry;
+import parkinglot.strategy.FarthestLookupStrategy;
+import parkinglot.strategy.LookUpStrategy;
+import parkinglot.strategy.NearestLookUpStrategy;
 
 public class LookupFactory {
 

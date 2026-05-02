@@ -1,4 +1,4 @@
-package exceptions;
+package tictactoe.exceptions;
 
 public class InvalidBoardSize extends RuntimeException {
     public InvalidBoardSize(String message) {

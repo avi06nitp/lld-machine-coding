@@ -1,9 +1,9 @@
-package factory;
+package snakeandladder.factory;
 
-import enums.PlayerType;
-import models.Player;
-import strategy.FairDiceRollStrategy;
-import strategy.SpecialDiceRollStrategy;
+import snakeandladder.enums.PlayerType;
+import snakeandladder.models.Player;
+import snakeandladder.strategy.FairDiceRollStrategy;
+import snakeandladder.strategy.SpecialDiceRollStrategy;
 
 public class PlayerFactory {
 

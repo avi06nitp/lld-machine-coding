@@ -1,4 +1,4 @@
-package exceptions;
+package tictactoe.exceptions;
 
 public class AlreadyOccupiedCellException extends InvalidInputExeption {
     public AlreadyOccupiedCellException(int row, int column) {

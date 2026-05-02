@@ -1,10 +1,10 @@
-package controller;
+package snakeandladder.controller;
 
-import enums.PlayerType;
-import factory.PlayerFactory;
-import models.Board;
-import models.Player;
-import strategy.WinningStrategy;
+import snakeandladder.enums.PlayerType;
+import snakeandladder.factory.PlayerFactory;
+import snakeandladder.models.Board;
+import snakeandladder.models.Player;
+import snakeandladder.strategy.WinningStrategy;
 
 import java.util.*;
 

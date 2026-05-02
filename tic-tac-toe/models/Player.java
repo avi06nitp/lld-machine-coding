@@ -1,7 +1,7 @@
-package models;
+package tictactoe.models;
 
-import enums.PlayerType;
-import strategy.MoveStrategy;
+import tictactoe.enums.PlayerType;
+import tictactoe.strategy.MoveStrategy;
 
 public class Player {
     private final String name;

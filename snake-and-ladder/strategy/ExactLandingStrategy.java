@@ -1,7 +1,7 @@
-package strategy;
+package snakeandladder.strategy;
 
-import models.Board;
-import models.Player;
+import snakeandladder.models.Board;
+import snakeandladder.models.Player;
 
 public class ExactLandingStrategy implements WinningStrategy   {
 

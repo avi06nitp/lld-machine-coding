@@ -1,4 +1,4 @@
-package strategy;
+package snakeandladder.strategy;
 
 public class FairDiceRollStrategy implements DiceRollStrategy {
 

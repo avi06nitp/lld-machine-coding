@@ -1,7 +1,7 @@
-package service;
+package tictactoe.service;
 
-import enums.GameStatus;
-import models.Board;
+import tictactoe.enums.GameStatus;
+import tictactoe.models.Board;
 
 import java.util.HashMap;
 import java.util.Map;

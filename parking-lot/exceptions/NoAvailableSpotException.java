@@ -1,6 +1,6 @@
-package exceptions;
+package parkinglot.exceptions;
 
-import enums.VehicleType;
+import parkinglot.enums.VehicleType;
 
 public class NoAvailableSpotException extends ParkingLotException {
     public NoAvailableSpotException(String floorName, VehicleType type) {

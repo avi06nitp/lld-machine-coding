@@ -1,4 +1,4 @@
-package models;
+package parkinglot.models;
 
 import java.text.DateFormat;
 import java.util.Date;

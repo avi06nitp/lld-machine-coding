@@ -1,7 +1,7 @@
-package service;
+package snakeandladder.service;
 
-import exceptions.*;
-import models.Board;
+import snakeandladder.exceptions.*;;
+import snakeandladder.models.Board;
 import java.util.Map;
 
 public class ValidationService {

@@ -1,10 +1,10 @@
-import controller.ParkingLotController;
-import enums.LookupType;
-import factory.LookupFactory;
-import factory.VehicleFactory;
-import registry.FloorRegistry;
-import service.ParkingService;
-import strategy.LookUpStrategy;
+import parkinglot.controller.ParkingLotController;
+import parkinglot.enums.LookupType;
+import parkinglot.factory.LookupFactory;
+import parkinglot.factory.VehicleFactory;
+import parkinglot.registry.FloorRegistry;
+import parkinglot.service.ParkingService;
+import parkinglot.strategy.LookUpStrategy;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

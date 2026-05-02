@@ -1,8 +1,8 @@
-package strategy;
+package parkinglot.strategy;
 
-import enums.VehicleType;
-import models.Floor;
-import models.ParkingSpot;
+import parkinglot.enums.VehicleType;
+import parkinglot.models.Floor;
+import parkinglot.models.ParkingSpot;
 
 import java.util.Optional;
 

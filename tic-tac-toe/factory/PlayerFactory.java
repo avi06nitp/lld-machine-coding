@@ -1,11 +1,11 @@
-package factory;
+package tictactoe.factory;
 
-import enums.PlayerType;
-import models.Player;
-import service.GameService;
-import service.InputValidationService;
-import strategy.ComputerMoveStrategy;
-import strategy.HumanMoveStrategy;
+import tictactoe.enums.PlayerType;
+import tictactoe.models.Player;
+import tictactoe.service.GameService;
+import tictactoe.service.InputValidationService;
+import tictactoe.strategy.ComputerMoveStrategy;
+import tictactoe.strategy.HumanMoveStrategy;
 
 public class PlayerFactory {
 

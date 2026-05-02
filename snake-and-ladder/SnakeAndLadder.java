@@ -1,13 +1,13 @@
-import controller.GameController;
-import enums.GameWinningStrategy;
-import exceptions.InvalidBoardSize;
-import exceptions.InvalidLadderCount;
-import exceptions.InvalidPlayerSize;
-import factory.PlayerFactory;
-import factory.WinningStrategyFactory;
-import models.Board;
-import service.ValidationService;
-import strategy.WinningStrategy;
+import snakeandladder.controller.GameController;
+import snakeandladder.enums.GameWinningStrategy;
+import snakeandladder.exceptions.InvalidBoardSize;
+import snakeandladder.exceptions.InvalidLadderCount;
+import snakeandladder.exceptions.InvalidPlayerSize;
+import snakeandladder.factory.PlayerFactory;
+import snakeandladder.factory.WinningStrategyFactory;
+import snakeandladder.models.Board;
+import snakeandladder.service.ValidationService;
+import snakeandladder.strategy.WinningStrategy;
 
 import java.util.Scanner;
 

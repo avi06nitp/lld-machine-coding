@@ -1,7 +1,7 @@
-package models;
+package parkinglot.models;
 
-import enums.VehicleType;
-import strategy.HourlyFairCalculationStrategy;
+import parkinglot.enums.VehicleType;
+import parkinglot.strategy.HourlyFairCalculationStrategy;
 
 public class Vehicle {
     private final String LicensePlate;

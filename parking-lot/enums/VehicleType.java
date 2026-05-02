@@ -1,4 +1,4 @@
-package enums;
+package parkinglot.enums;
 
 public enum VehicleType {
     TWO_WHEELER,

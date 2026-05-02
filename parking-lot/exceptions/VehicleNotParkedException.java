@@ -1,4 +1,4 @@
-package exceptions;
+package parkinglot.exceptions;
 
 public class VehicleNotParkedException extends ParkingLotException {
     public VehicleNotParkedException(String licensePlate) {

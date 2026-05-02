@@ -1,9 +1,9 @@
-package factory;
+package snakeandladder.factory;
 
-import enums.GameWinningStrategy;
-import strategy.ExactLandingStrategy;
-import strategy.ExceedsLandingStrategy;
-import strategy.WinningStrategy;
+import snakeandladder.enums.GameWinningStrategy;
+import snakeandladder.strategy.ExactLandingStrategy;
+import snakeandladder.strategy.ExceedsLandingStrategy;
+import snakeandladder.strategy.WinningStrategy;
 
 public class WinningStrategyFactory {
 

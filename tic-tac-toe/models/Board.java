@@ -1,4 +1,4 @@
-package models;
+package tictactoe.models;
 
 public class Board {
     private final int size;

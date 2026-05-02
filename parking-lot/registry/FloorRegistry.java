@@ -1,6 +1,6 @@
-package registry;
+package parkinglot.registry;
 
-import models.Floor;
+import parkinglot.models.Floor;
 
 import java.util.HashMap;
 

@@ -1,11 +1,11 @@
-package strategy;
+package tictactoe.strategy;
 
-import models.Board;
-import models.Move;
-import models.Player;
-import service.GameService;
-import service.InputValidationService;
-import exceptions.InvalidInputExeption;
+import tictactoe.models.Board;
+import tictactoe.models.Move;
+import tictactoe.models.Player;
+import tictactoe.service.GameService;
+import tictactoe.service.InputValidationService;
+import tictactoe.exceptions.InvalidInputExeption;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package exceptions;
+package parkinglot.exceptions;
 
 public class ParkingLotException extends RuntimeException {
     public ParkingLotException(String message) {

@@ -1,4 +1,4 @@
-package exceptions;
+package parkinglot.exceptions;
 
 public class FloorNotFoundException extends ParkingLotException {
     public FloorNotFoundException(String floorName) {

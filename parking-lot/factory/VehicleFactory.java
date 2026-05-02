@@ -1,10 +1,10 @@
-package factory;
+package parkinglot.factory;
 
-import enums.VehicleType;
-import models.Vehicle;
-import strategy.FourWheelerHourlyFairCalculationStrategy;
-import strategy.HeavyVehicleHourlyFairCalculationStrategy;
-import strategy.TwoWheelerHourlyFairCalculationStrategy;
+import parkinglot.enums.VehicleType;
+import parkinglot.models.Vehicle;
+import parkinglot.strategy.FourWheelerHourlyFairCalculationStrategy;
+import parkinglot.strategy.HeavyVehicleHourlyFairCalculationStrategy;
+import parkinglot.strategy.TwoWheelerHourlyFairCalculationStrategy;
 
 public class VehicleFactory {
 

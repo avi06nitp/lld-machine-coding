@@ -1,9 +1,9 @@
-package service;
+package tictactoe.service;
 
-import enums.GameStatus;
-import models.Board;
-import models.Player;
-import strategy.MoveStrategy;
+import tictactoe.enums.GameStatus;
+import tictactoe.models.Board;
+import tictactoe.models.Player;
+import tictactoe.strategy.MoveStrategy;
 
 
 public class GameService {

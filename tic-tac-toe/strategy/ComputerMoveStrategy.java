@@ -1,7 +1,7 @@
-package strategy;
+package tictactoe.strategy;
 
-import models.Board;
-import models.Player;
+import tictactoe.models.Board;
+import tictactoe.models.Player;
 
 
 

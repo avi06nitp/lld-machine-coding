@@ -1,16 +1,16 @@
-package controller;
+package parkinglot.controller;
 
-import enums.VehicleType;
-import exceptions.FloorNotFoundException;
-import exceptions.NoAvailableSpotException;
-import exceptions.VehicleNotParkedException;
-import factory.VehicleFactory;
-import models.Floor;
-import models.ParkingSpot;
-import models.Ticket;
-import models.Vehicle;
-import registry.FloorRegistry;
-import service.ParkingService;
+import parkinglot.enums.VehicleType;
+import parkinglot.exceptions.FloorNotFoundException;
+import parkinglot.exceptions.NoAvailableSpotException;
+import parkinglot.exceptions.VehicleNotParkedException;
+import parkinglot.factory.VehicleFactory;
+import parkinglot.models.Floor;
+import parkinglot.models.ParkingSpot;
+import parkinglot.models.Ticket;
+import parkinglot.models.Vehicle;
+import parkinglot.registry.FloorRegistry;
+import parkinglot.service.ParkingService;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
