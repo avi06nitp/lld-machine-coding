@@ -1,7 +1,7 @@
 # Tic-Tac-Toe
 
 **Difficulty:** ⭐⭐☆☆☆ (Easy)
-**Time:** 60-90 mins
+**Time:** 120 mins
 **Role:** Senior SDE (3+ YoE)
 
 ---
