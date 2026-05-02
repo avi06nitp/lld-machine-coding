@@ -1,4 +1,3 @@
-
 import tictactoe.enums.PlayerType;
 import tictactoe.exceptions.InvalidBoardSize;
 import tictactoe.factory.PlayerFactory;
