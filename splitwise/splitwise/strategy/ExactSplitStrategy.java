@@ -1,33 +1,34 @@
 package splitwise.strategy;
 
-import splitwise.exception.InvalidExpenseException;
 import splitwise.models.Expense;
 import splitwise.models.User;
 
 import java.util.Map;
 
-public class ExactSplitStrategy implements ExpenseSplitStrategy {
-
+public class ExactSplitStrategy  implements SplitStrategy {
     @Override
-    public void splitExpense(Expense expense) {
-        Map<User, Double> shares = expense.getExpenseSplit();
-        double sum = 0.0;
-        for (Double v : shares.values()) {
-            sum += v;
-        }
-        if (Math.abs(sum - expense.getAmount()) > 1e-9) {
-            throw new InvalidExpenseException("Sum of exact splits (" + sum + ") must equal expense amount (" + expense.getAmount() + ")");
+    public void split(Expense expense) {
+        // Get Spender and Total Amount
+        User spender=expense.getSpender();
+        Double amount=expense.getAmount();
+
+        Map<User,Double> participants=expense.getSplits();
+        Map<User,Double>spenderBalance=spender.getBalance();
+
+        for(Map.Entry<User,Double> entry:participants.entrySet()){
+            if(!entry.getKey().equals(spender)){
+                Map<User,Double >participantBalance=entry.getKey().getBalance();
+
+                //Update Participant's and Spender's Balances
+                Double getSpenderBalanceOnParticipant=participantBalance.getOrDefault(spender,0.0);
+                Double getParticiplantBalanceOnSpender=spenderBalance.getOrDefault(entry.getKey(),0.0);
+
+                participantBalance.put(spender,getSpenderBalanceOnParticipant-entry.getValue());
+                spenderBalance.put(entry.getKey(),getParticiplantBalanceOnSpender+entry.getValue());
+
+            }
         }
 
-        User spender = expense.getSepnder();
-        for (Map.Entry<User, Double> entry : shares.entrySet()) {
-            User participant = entry.getKey();
-            if (participant.equals(spender)) {
-                continue;
-            }
-            double share = entry.getValue();
-            spender.getBalance().merge(participant, share, Double::sum);
-            participant.getBalance().merge(spender, -share, Double::sum);
-        }
+
     }
 }

@@ -6,16 +6,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserRegistry {
-    public static Map<String, User> users=new HashMap<String, User>();
+    private static Map<String, User> users = new HashMap<>();
 
-
-    public static void registerUser(User user){
+    public static void registerUser(User user) {
         users.put(user.getUsername(), user);
     }
-    public static User getUser(String username){
+
+    public static void unregisterUser(User user) {
+        users.remove(user.getUsername());
+    }
+
+    public static User getUser(String username) {
         return users.get(username);
     }
+
     public static Map<String, User> getUsers() {
-        return Map.copyOf(users);
+        return users;
     }
+
 }

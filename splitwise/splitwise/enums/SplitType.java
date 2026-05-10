@@ -1,6 +1,6 @@
 package splitwise.enums;
 
-public enum ExpenseType {
+public enum SplitType {
     EQUAL,
     EXACT,
     PERCENTAGE,

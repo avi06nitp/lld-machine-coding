@@ -5,23 +5,31 @@ import splitwise.models.User;
 
 import java.util.Map;
 
-public class EqualSplitStrategy implements ExpenseSplitStrategy {
-
+public class EqualSplitStrategy implements SplitStrategy {
     @Override
-    public void splitExpense(Expense expense) {
-        User spender = expense.getSepnder();
-        Map<User, Double> participants = expense.getExpenseSplit();
-        if (participants.isEmpty()) {
-            return;
-        }
-        double share = expense.getAmount() / participants.size();
+    public void split(Expense expense) {
 
-        for (User participant : participants.keySet()) {
-            if (participant.equals(spender)) {
-                continue;
+        // Get Spender and Total Amount
+        User spender=expense.getSpender();
+        Double amount=expense.getAmount();
+
+        Map<User,Double> participants=expense.getSplits();
+        Double individualShares=amount/participants.size();
+        Map<User,Double>spenderBalance=spender.getBalance();
+
+        for(Map.Entry<User,Double> entry:participants.entrySet()){
+            if(!entry.getKey().equals(spender)){
+                Map<User,Double >participantBalance=entry.getKey().getBalance();
+
+                //Update Participant's and Spender's Balances
+                Double getSpenderBalanceOnParticipant=participantBalance.getOrDefault(spender,0.0);
+                Double getParticiplantBalanceOnSpender=spenderBalance.getOrDefault(entry.getKey(),0.0);
+
+                participantBalance.put(spender,getSpenderBalanceOnParticipant-individualShares);
+                spenderBalance.put(entry.getKey(),getParticiplantBalanceOnSpender+individualShares);
+
             }
-            spender.getBalance().merge(participant, share, Double::sum);
-            participant.getBalance().merge(spender, -share, Double::sum);
         }
+
     }
 }

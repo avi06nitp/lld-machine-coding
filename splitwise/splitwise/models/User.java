@@ -7,25 +7,29 @@ import java.util.Map;
 
 public class User {
 
+    private static int idCounter=0;
+    private final int id;
     private final String username;
     private final String email;
-    private  Map<User,Double>balance = new HashMap<>();
+    private Map<User,Double> balance=new HashMap<User,Double>();
 
     private User(String username, String email) {
+        idCounter++;
+        this.id = idCounter;
         this.username = username;
         this.email = email;
     }
 
-    public static User createUser(String username, String email){
-        User user= UserRegistry.getUser(username);
-        if(user==null){
-            user =new User(username,email);
-            UserRegistry.registerUser(user);
-        }
+    public static User create(String username, String email) {
+        User user= new User(username, email);
+        UserRegistry.registerUser(user);
         return user;
     }
 
-    //Getters
+    // Getters
+    public int getId() {
+        return id;
+    }
     public String getUsername() {
         return username;
     }
@@ -36,9 +40,4 @@ public class User {
         return balance;
     }
 
-
-    // Setters
-    public void setBalance(User user, Double value) {
-      balance.put(user,balance.getOrDefault(user,balance.getOrDefault(user,0.0) + value));
-    }
 }
