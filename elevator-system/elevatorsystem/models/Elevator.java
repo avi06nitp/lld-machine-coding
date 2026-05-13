@@ -8,56 +8,77 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Elevator {
-    private static int idCounter=1;
-    private final String NAME_PREFIX = "Elevator:";
+    private static int idCounter = 1;
+    private static final String NAME_PREFIX = "Elevator:";
+
     private final String name;
-    private ElevatorState state=ElevatorState.IDLE;
-    private int currentFloor=0;
-    private SortedSet<Integer> upRequests;
-    private SortedSet<Integer> downRequests;
     private final int maxFloor;
+    private final SortedSet<Integer> upRequests = new TreeSet<>();
+    private final SortedSet<Integer> downRequests = new TreeSet<>();
+
+    private ElevatorState state = ElevatorState.IDLE;
+    private int currentFloor = 0;
 
     private Elevator(int maxFloor) {
-        this.name = NAME_PREFIX+idCounter;
-        idCounter++;
-        this.maxFloor=maxFloor;
-        this.downRequests=new TreeSet<>();
-        this.upRequests=new TreeSet<>();
+        this.name = NAME_PREFIX + idCounter++;
+        this.maxFloor = maxFloor;
     }
 
-    // Elevator Factory
-    public static Elevator createElevator(){
-        int maxNoOfFloors= Building.getInstance().getNoOfFloors();
-        Elevator elevator= new Elevator(maxNoOfFloors);
+    public static Elevator createElevator() {
+        Elevator elevator = new Elevator(Building.getInstance().getNoOfFloors());
         ElevatorRegistry.addElevator(elevator);
         return elevator;
     }
 
-    // Getters & Setters
     public String getName() {
         return name;
     }
-    public ElevatorState getState() {
-        return state;
-    }
-    public void setState(ElevatorState state) {
-        this.state = state;
-    }
-    public int getCurrentFloor() {
-        return currentFloor;
-    }
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
-    }
-    public SortedSet<Integer> getUpRequests() {
-        return upRequests;
-    }
 
-    public SortedSet<Integer> getDownRequests() {
-        return downRequests;
-    }
     public int getMaxFloor() {
         return maxFloor;
     }
 
+    public ElevatorState getState() {
+        return state;
+    }
+
+    public void setState(ElevatorState state) {
+        this.state = state;
+    }
+
+    public int getCurrentFloor() {
+        return currentFloor;
+    }
+
+    public void setCurrentFloor(int currentFloor) {
+        this.currentFloor = currentFloor;
+    }
+
+    public SortedSet<Integer> getUpRequests() {
+        return Collections.unmodifiableSortedSet(upRequests);
+    }
+
+    public SortedSet<Integer> getDownRequests() {
+        return Collections.unmodifiableSortedSet(downRequests);
+    }
+
+    public void addUpRequest(int floor) {
+        upRequests.add(floor);
+    }
+
+    public void addDownRequest(int floor) {
+        downRequests.add(floor);
+    }
+
+    public void removeUpRequest(int floor) {
+        upRequests.remove(floor);
+    }
+
+    public void removeDownRequest(int floor) {
+        downRequests.remove(floor);
+    }
+
+    public int totalPendingRequests() {
+        return upRequests.size() + downRequests.size();
+    }
 }
