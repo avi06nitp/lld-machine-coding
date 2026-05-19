@@ -28,8 +28,6 @@ public class RateLimiter {
         System.out.println("  ╚══════════════════════════════════════════════╝" + RESET);
 
         User user  = User.createUser("admin");
-        User user2 = User.createUser("avinash");
-        User user3 = User.createUser("avinash");
 
         // ---------- Token Bucket ----------
         section("TOKEN  BUCKET", "capacity=5, refill=2/s");
